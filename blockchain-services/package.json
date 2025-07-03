@@ -1,0 +1,155 @@
+{
+  "name": "mdchart-blockchain-services",
+  "version": "2.0.0",
+  "description": "Mdchart V2.0 Supreme Edition - Revolutionary Blockchain & Web3 Services",
+  "main": "index.js",
+  "author": "Ebube Eze <ebube@mdchart.com>",
+  "license": "MIT",
+  "keywords": [
+    "blockchain",
+    "web3",
+    "ethereum",
+    "nft",
+    "defi",
+    "dao",
+    "smart-contracts",
+    "cryptocurrency",
+    "metaverse",
+    "social-media"
+  ],
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "build": "webpack --mode production",
+    "test": "jest",
+    "deploy-contracts": "hardhat run scripts/deploy.js --network goerli",
+    "verify-contracts": "hardhat verify --network goerli",
+    "compile": "hardhat compile",
+    "audit": "slither contracts/",
+    "coverage": "hardhat coverage",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "setup-dao": "node scripts/setup-dao.js",
+    "setup-nft": "node scripts/setup-nft.js",
+    "setup-defi": "node scripts/setup-defi.js",
+    "migrate": "hardhat run scripts/migrate.js",
+    "whitelist": "node scripts/whitelist.js"
+  },
+  "dependencies": {
+    "web3": "^4.2.0",
+    "ethers": "^6.8.0",
+    "@openzeppelin/contracts": "^4.9.0",
+    "@openzeppelin/contracts-upgradeable": "^4.9.0",
+    "@chainlink/contracts": "^0.8.0",
+    
+    "hardhat": "^2.18.0",
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "@nomiclabs/hardhat-ethers": "^2.2.0",
+    "@nomiclabs/hardhat-etherscan": "^3.1.0",
+    "hardhat-gas-reporter": "^1.0.0",
+    "solidity-coverage": "^0.8.0",
+    
+    "@uniswap/v3-sdk": "^3.10.0",
+    "@uniswap/sdk-core": "^4.0.0",
+    "@pancakeswap/sdk": "^5.7.0",
+    "compound-protocol": "^0.2.2",
+    
+    "ipfs-http-client": "^60.0.0",
+    "ipfs-core": "^0.18.0",
+    "multihashes": "^4.0.0",
+    "orbit-db": "^0.29.0",
+    
+    "express": "^4.18.0",
+    "cors": "^2.8.0",
+    "helmet": "^7.0.0",
+    "morgan": "^1.10.0",
+    "compression": "^1.7.0",
+    
+    "redis": "^4.6.0",
+    "mongodb": "^6.2.0",
+    "mongoose": "^7.6.0",
+    
+    "socket.io": "^4.7.0",
+    "ws": "^8.14.0",
+    
+    "axios": "^1.5.0",
+    "lodash": "^4.17.0",
+    "moment": "^2.29.0",
+    "big.js": "^6.2.0",
+    "bignumber.js": "^9.1.0",
+    
+    "crypto-js": "^4.2.0",
+    "elliptic": "^6.5.0",
+    "secp256k1": "^5.0.0",
+    "keccak": "^3.0.0",
+    "ethereumjs-util": "^7.1.0",
+    
+    "dotenv": "^16.3.0",
+    "winston": "^3.11.0",
+    "joi": "^17.11.0",
+    "rate-limiter-flexible": "^3.0.0",
+    
+    "@walletconnect/client": "^1.8.0",
+    "@web3modal/ethereum": "^2.7.0",
+    "viem": "^1.16.0",
+    "wagmi": "^1.4.0",
+    
+    "node-cron": "^3.0.0",
+    "bull": "^4.12.0",
+    "ioredis": "^5.3.0",
+    
+    "sharp": "^0.32.0",
+    "canvas": "^2.11.0",
+    "jimp": "^0.22.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0",
+    "jest": "^29.7.0",
+    "supertest": "^6.3.0",
+    "eslint": "^8.51.0",
+    "prettier": "^3.0.0",
+    "@types/node": "^20.8.0",
+    "typescript": "^5.2.0",
+    "ts-node": "^10.9.0",
+    "slither-analyzer": "^0.10.0",
+    "mythril": "^0.23.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mdchart/mdchart-v2-supreme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mdchart/mdchart-v2-supreme/issues"
+  },
+  "homepage": "https://mdchart.com",
+  "config": {
+    "networks": {
+      "mainnet": {
+        "url": "https://mainnet.infura.io/v3/",
+        "chainId": 1
+      },
+      "goerli": {
+        "url": "https://goerli.infura.io/v3/",
+        "chainId": 5
+      },
+      "polygon": {
+        "url": "https://polygon-rpc.com/",
+        "chainId": 137
+      },
+      "bsc": {
+        "url": "https://bsc-dataseed.binance.org/",
+        "chainId": 56
+      },
+      "avalanche": {
+        "url": "https://api.avax.network/ext/bc/C/rpc",
+        "chainId": 43114
+      }
+    }
+  }
+}

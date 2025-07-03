@@ -1,0 +1,167 @@
+{
+    "name": "mdchart/supreme-backend",
+    "type": "project",
+    "description": "Mdchart V2.0 Supreme Edition - Revolutionary Social Media Platform Backend",
+    "keywords": [
+        "social-media",
+        "ai",
+        "blockchain",
+        "web3",
+        "gaming",
+        "ar-vr",
+        "analytics",
+        "laravel",
+        "supreme"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ebube Eze",
+            "email": "ebube@mdchart.com",
+            "role": "Supreme Architect"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "laravel/framework": "^10.0",
+        "laravel/sanctum": "^3.2",
+        "laravel/tinker": "^2.8",
+        "laravel/passport": "^11.8",
+        "laravel/horizon": "^5.15",
+        "laravel/telescope": "^4.14",
+        "laravel/cashier": "^14.6",
+        "laravel/socialite": "^5.6",
+        
+        "guzzlehttp/guzzle": "^7.2",
+        "pusher/pusher-php-server": "^7.2",
+        "predis/predis": "^2.2",
+        "league/flysystem-aws-s3-v3": "^3.0",
+        "intervention/image": "^2.7",
+        "spatie/laravel-permission": "^5.10",
+        "spatie/laravel-activitylog": "^4.7",
+        "spatie/laravel-media-library": "^10.7",
+        "spatie/laravel-backup": "^8.3",
+        "spatie/laravel-analytics": "^4.2",
+        
+        "openai-php/client": "^0.7.0",
+        "openai-php/laravel": "^0.7.0",
+        "aws/aws-sdk-php": "^3.267",
+        "google/cloud-translate": "^1.12",
+        "google/cloud-speech": "^1.14",
+        
+        "web3p/web3.php": "^0.1.5",
+        "kornrunner/keccak": "^1.1",
+        "simplito/elliptic-php": "^1.0",
+        "phpseclib/phpseclib": "^3.0",
+        
+        "mongodb/laravel-mongodb": "^3.9",
+        "elasticsearch/elasticsearch": "^8.8",
+        "algolia/scout-extended": "^3.0",
+        
+        "pusher/pusher-php-server": "^7.2",
+        "ratchet/pawl": "^0.4.1",
+        "textalk/websocket-client": "^1.5",
+        
+        "league/oauth2-server": "^8.5",
+        "firebase/php-jwt": "^6.8",
+        "lcobucci/jwt": "^5.0",
+        
+        "doctrine/dbal": "^3.6",
+        "maatwebsite/excel": "^3.1",
+        "barryvdh/laravel-dompdf": "^2.0",
+        "barryvdh/laravel-cors": "^2.0",
+        
+        "sentry/sentry-laravel": "^3.8",
+        "bugsnag/bugsnag-laravel": "^2.26",
+        
+        "league/flysystem-ftp": "^3.0",
+        "league/csv": "^9.8",
+        "nesbot/carbon": "^2.68",
+        "ramsey/uuid": "^4.7"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.21",
+        "laravel/pint": "^1.10",
+        "laravel/sail": "^1.23",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/collision": "^7.7",
+        "phpunit/phpunit": "^10.2",
+        "spatie/laravel-ignition": "^2.2",
+        "barryvdh/laravel-debugbar": "^3.9",
+        "barryvdh/laravel-ide-helper": "^2.13",
+        "friendsofphp/php-cs-fixer": "^3.21",
+        "phpstan/phpstan": "^1.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        },
+        "files": [
+            "app/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ],
+        "supreme-setup": [
+            "@php artisan migrate:fresh --seed",
+            "@php artisan passport:install --force",
+            "@php artisan storage:link",
+            "@php artisan horizon:install",
+            "@php artisan telescope:install",
+            "@php artisan mdchart:setup-supreme"
+        ],
+        "ai-setup": [
+            "@php artisan mdchart:setup-ai",
+            "@php artisan mdchart:train-models"
+        ],
+        "blockchain-setup": [
+            "@php artisan mdchart:deploy-contracts",
+            "@php artisan mdchart:setup-wallet"
+        ],
+        "gaming-setup": [
+            "@php artisan mdchart:setup-games",
+            "@php artisan mdchart:create-tournaments"
+        ],
+        "test-supreme": [
+            "vendor/bin/phpunit --testsuite=Supreme",
+            "@php artisan test:ai",
+            "@php artisan test:blockchain",
+            "@php artisan test:gaming"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
