@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/mdchart-icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Mdchart - The Ultimate Social Media Platform. Connect, Share, and Engage with your community like never before." />
+    <meta name="keywords" content="social media, mdchart, social network, connect, share, chat, groups, pages" />
+    <meta name="author" content="Ebube Eze" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Mdchart - Ultimate Social Media Platform" />
+    <meta property="og:description" content="Connect, Share, and Engage with your community like never before." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mdchart.com" />
+    <meta property="og:image" content="/mdchart-og-image.jpg" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mdchart - Ultimate Social Media Platform" />
+    <meta name="twitter:description" content="Connect, Share, and Engage with your community like never before." />
+    <meta name="twitter:image" content="/mdchart-og-image.jpg" />
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#3B82F6" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/mdchart-192.png" />
+    
+    <!-- Preconnect to external services -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    
+    <title>Mdchart - Ultimate Social Media Platform</title>
+    
+    <!-- Critical CSS for faster loading -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #f9fafb;
+        }
+        
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        
+        .loading-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s infinite;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .loading-text {
+            margin-top: 20px;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div>
+            <div class="loading-logo">
+                <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="40" fill="#3B82F6"/>
+                    <path d="M30 50C30 38.954 38.954 30 50 30V50H30Z" fill="#60A5FA"/>
+                    <path d="M50 30C61.046 30 70 38.954 70 50H50V30Z" fill="#1D4ED8"/>
+                    <circle cx="50" cy="50" r="8" fill="white"/>
+                </svg>
+            </div>
+            <div class="loading-text">
+                Mdchart
+                <br>
+                <small style="font-size: 14px; opacity: 0.8;">Supreme Social Platform</small>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main App Container -->
+    <div id="root"></div>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch((registrationError) => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+    
+    <!-- Main Application Script -->
+    <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>
